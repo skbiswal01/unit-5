@@ -1,0 +1,32 @@
+*{
+  font-family: sans-serif;
+}
+.App {
+  text-align: left;
+  background-color: rgb(212,224,234);
+}
+
+.navbar{
+  display : flex;
+  justify-content: space-around;
+  align-items : center;
+  background-color: rgb(36,37,42);
+  color : whitesmoke;
+  width : 90%;
+  margin : 50px auto;
+  border-radius: 10px;
+}
+
+.middle-elements> a{
+   padding-right : 12px;
+   font-weight: 600;
+}
+
+.contacts > button {
+  background-color: rgb(3,138,165);
+  width : 90px;
+  height : 25px;
+  border-radius: 15px;
+  color : whitesmoke;
+  border : 0;
+}
