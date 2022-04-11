@@ -10,6 +10,12 @@ function App() {
   });
 
   function Scoreboard(str, value){
+    if(score.Score > 100){
+     return;
+    }
+    if(score.Wicket > 12){
+     return;
+    }
     let x = {};
     x[str] = score[str] + value;
     let res = {
@@ -32,7 +38,7 @@ function App() {
     var f = Math.floor(balls2 / 6);
     var total_over = Math.ceil(balls%6);
     if(f > 1){
-      var total_over = Math.ceil(balls%6) + 1;
+       total_over = Math.ceil(balls%6) + 1;
     }
      
     var totals_over_calculated = f+"."+total_over;
