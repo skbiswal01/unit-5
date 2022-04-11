@@ -12,7 +12,7 @@ export const Inventory = () => {
       let m={}
         m[str]=inv[str]+value
       let res = {
-        ...inv,
+        ...inv,    
         ...m
       };
       if(res[str]<0){
