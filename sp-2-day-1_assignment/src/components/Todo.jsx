@@ -1,34 +1,37 @@
-import { useState } from "react";
-import { TodoInput } from "./TodoInput";
-import { TodoItem } from "./TodoItems";
-import { nanoid } from "nanoid"
+import { useState } from "react"
+import { ToDoList } from "./TodoList"
+import {nanoid} from "nanoid";
+import "./Todo.css"
 
-function Todo() {
-
-    const [todoList, setTodoList] = useState([])
-
-    const getData = (todo) => {
-        const payload = {
-            title: todo,
-            status: false,
-            id: nanoid(5),
-        }
-        setTodoList([...todoList, payload]);
-    };
-
-    const handleStatus = (id) => {
-        setTodoList([
-            ...todoList.map((e) => (e.id === id ? { ...e, status: !e.status } : e)),
+const Todo = () => {
+    const [TodoData, setTodoData] = useState([]);
+    const getData = (id) => {
+        const data = document.getElementById(id).value;
+        document.getElementById(id).value = "";
+        setTodoData([...TodoData,
+            {
+                title: data,
+                status: false,
+                id: nanoid(5)
+            }
         ]);
-    };
+    }
+    const toggle = (id) => {
+        setTodoData([
+            ...TodoData.map((e) => {
+                return (e.id === id ? {...e, status: !e.status} : e)
+            })
+        ])
+    }
 
     return (
-        <div>
-            <TodoInput getData={getData} />
-            {todoList.map((e) => (
-                <TodoItem handleStatus={handleStatus} todo={e}></TodoItem>
-            ))}
-        </div>
+        <>
+            <ToDoList data={TodoData} toggle={toggle}/>
+            <div id="input-div">
+                <input id="user-input" type="text" placeholder="Write Something"></input>
+                <button onClick={() => {getData("user-input")}} id="plus">+</button>
+            </div>
+        </>
     )
 }
 
