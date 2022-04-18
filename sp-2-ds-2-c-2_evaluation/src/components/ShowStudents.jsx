@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
-
+import "./ShowStudents.css";
 export const ShowStudents = () => {
   const [studentData, setStudentData] = useState([]);
+  const [sort,setsort] = useState({
+    sortby:"",
+    sortorder:"",
+  })
   useEffect(()=>{
     async function getdata(){
       var data = await fetch("http://localhost:8080/students")
@@ -10,6 +14,24 @@ export const ShowStudents = () => {
     }
     getdata()
   },[])
+   
+  function sortData(e){
+    const {className,value} = e.target;
+    setsort({
+        ...sort,
+        [className]:value,
+    })
+  }
+  function sohorting(data){
+    var x =data.sortby;
+    if(data.sortorder==="asc"){
+      setStudentData(studentData.sort((a,b)=>{return a.x-b.x}))
+    }else if(data.sortorder==="desc"){
+      setStudentData(studentData.sort((a,b)=>{return b.x-a.x}))
+    }
+    console.log(studentData)
+  }
+
   return (
     <div>
       <div className="controls">
@@ -18,6 +40,7 @@ export const ShowStudents = () => {
           <select
             // select dropdown needs both value and onChange
             className="sortby"
+            onChange={sortData}
           >
             <option value="first_name">First Name</option>
             <option value="gender">Gender</option>
@@ -31,12 +54,13 @@ export const ShowStudents = () => {
           <select
             // select dropdown needs both value and onChange
             className="sortorder"
+            onChange={sortData}
           >
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
           </select>
         </div>
-        <button className="sort">sort</button>
+        <button className="sort" onClick={()=>{sohorting(sort)}}>sort</button>
       </div>
       <table className="table">
         <thead>
@@ -52,7 +76,6 @@ export const ShowStudents = () => {
           </tr>
         </thead>
         <tbody className="tbody">
-          {/* populate all rows like below: */}
           {studentData.map((e)=>{
             return <tr className="row">
             <td className="first_name">{e.first_name}</td>
