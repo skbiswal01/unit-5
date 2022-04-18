@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
 import "./ShowStudents.css";
+import { useEffect, useState } from "react";
+
 export const ShowStudents = () => {
   const [studentData, setStudentData] = useState([]);
   const [sort,setsort] = useState({
@@ -24,13 +25,26 @@ export const ShowStudents = () => {
   }
   function sohorting(data){
     var x =data.sortby;
-    if(data.sortorder==="asc"){
-      setStudentData(studentData.sort((a,b)=>{return a.x-b.x}))
-    }else if(data.sortorder==="desc"){
-      setStudentData(studentData.sort((a,b)=>{return b.x-a.x}))
+    if(data.sortorder==="asc" && x== "age"){
+      setStudentData(studentData.sort((a,b)=>{return Number(a.age)-Number(b.age)}))
+    }else if(data.sortorder==="desc" && x=="age"){
+     setStudentData(studentData.sort((a,b)=>{return Number(b.age)-Number(a.age)}))
     }
-    console.log(studentData)
+    if(data.sortorder==="asc" && x== "tenth_score"){
+      setStudentData(studentData.sort((a,b)=>{return Number(a.tenth_score)-Number(b.tenth_score)}))
+    }else if(data.sortorder==="desc" && x=="tenth_score"){
+     setStudentData(studentData.sort((a,b)=>{return Number(b.tenth_score)-Number(a.tenth_score)}))
+    }
+    if(data.sortorder==="asc" && x== "twelth_score"){
+      setStudentData(studentData.sort((a,b)=>{return Number(a.twelth_score)-Number(b.twelth_score)}))
+    }else if(data.sortorder==="desc" && x=="twelth_score"){
+     setStudentData(studentData.sort((a,b)=>{return Number(b.twelth_score)-Number(a.twelth_score)}))
+    }
   }
+  useEffect(()=>{
+    sohorting(sort)
+
+  },[studentData])
 
   return (
     <div>
