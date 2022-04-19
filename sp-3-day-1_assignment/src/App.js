@@ -5,13 +5,15 @@ function App() {
   return (
     <div className="App">
       <Button
-      bgcolor = {"dodgerblue"} >Primery Button</Button>
-      <Button>Default</Button>
-      <Button>Dashed Button</Button>
+      bgcolor = {"dodgerblue"} color={"white"} >Primery Button</Button>
+      <Button border={"black"}>Default Button</Button>
+      <Button border={"dashed"}>Dashed Button</Button>
       <br/>
       <Button>Text Button</Button>
-      <Button>Link Button</Button>
+     <Button onClick={()=>{window.location.href="https://www.google.com"}}>Link Button</Button>
+      
     </div>
+
   );
 }
 

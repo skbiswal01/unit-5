@@ -8,6 +8,8 @@ const Button = styled.button`
     margin: 10px;
     color: ${(prop)=>{return prop.color ? `${prop.color}`:"black"}};
     border-radius: 5px;
+    color: ${(prop)=>{return prop.onClick ? "blue":"black"}};
+
 
 `;
 
