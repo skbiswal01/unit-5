@@ -50,7 +50,7 @@ export const ShowStudents = () => {
     <div>
       <div className="controls">
         <div>
-          Sort By:{" "}
+          Sort By:{sort.sortby}
           <select
             // select dropdown needs both value and onChange
             className="sortby"
