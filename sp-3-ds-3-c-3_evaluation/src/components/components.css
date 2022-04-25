@@ -1,0 +1,108 @@
+body{
+    background-color: whitesmoke;
+}
+.list_container{
+    display: grid;
+    grid-template-columns: 300px 300px 300px 300px;
+    justify-content: space-evenly;
+    margin: auto;
+    padding : 10px;
+}
+.employee_card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+  
+}
+.home{
+   
+    width: 30%;
+    margin: auto;
+    margin-bottom: 1px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    padding: 20px;
+    text-decoration: none;   
+}
+.totalemp{
+    padding-left: 200px;
+}
+.total_terminated{
+    padding-left: 200px;
+}
+.total_promoted{
+    padding-left: 210px;
+}
+.total_new{
+    padding-left: 250px;
+}
+
+/* ||||||||navabar */
+.navbar{
+    display: flex;
+    justify-content: space-evenly;
+    color: black;
+    /* background-color: #8B0000; */
+    height: 30px;
+}
+.nav-home{
+    background-color: aqua;
+    color: black;
+    border-radius: 5px;
+    width: 70px;
+}
+
+.nav-list{
+    background-color: aqua;
+    color: black;
+    border-radius: 5px;
+    width: 100px;
+}
+
+.nav-admin{
+    background-color: aqua;
+    color: black;
+    border-radius: 5px;
+    width: 100px;
+}
+.nav-login{
+    background-color: aqua;
+    color: black;
+    border-radius: 5px;
+    width: 100px;
+    padding: 0;
+}
+/* Card */
+.user_details{
+    /* border: 1px red solid; */
+    width: 18%;
+    margin: auto ;
+    margin-top: 40px;
+    
+}
+.user_salary{
+    padding-right: 150px;
+}
+.user_name{
+    padding-right: 85px;
+}
+
+.task{
+    padding-right: 85px;
+}
+.fire{
+    margin: auto;
+    /* margin-left: 50px; */
+    width: 90%;
+    background-color:rgb(247, 107, 107);
+    border: 0;
+    border-radius: 2px;
+}
+.promote{
+    /* margin-left: 70px; */
+    width: 90%;
+    background-color: rgb(114, 231, 114);
+    border: 0;
+    border-radius: 2px;
+    
+}
