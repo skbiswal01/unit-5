@@ -23,7 +23,7 @@ const handleSubmit = async(e) => {
 })
     .then((res) => res.json())
     console.log(data);
- 
+    
 }
   
   return (
