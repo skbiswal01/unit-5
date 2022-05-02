@@ -1,11 +1,20 @@
 // action types
 export const LOGIN = "LOGIN";
+export const LOGOUT = "LOGOUT"
 // Action Creators
-
-
-export const login = (data) => {
+export function login(data) {
+   
     return {
-        type: LOGIN,
-        payload: true,
+       
+      type: 'LOGIN',
+      payload: data,
     }
-};
+  }
+   
+ export function logout(data) {
+    
+    return {
+      type: 'LOGOUT',
+      payload: data,
+    }
+  }

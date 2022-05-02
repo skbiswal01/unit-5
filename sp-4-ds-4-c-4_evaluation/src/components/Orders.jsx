@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
+import { store } from '../Redux/store';
+
 
 export const Orders = () => {
   //  Get all data when admin logs in and populate it
@@ -45,17 +47,17 @@ export const Orders = () => {
               <td className="cost">{e.cost}</td>
               <td className="change-status">
                 {/* Show select dropdown only if status is Not Accepted */}
-                {e.status=== "Not Accepted" ? <select className="changeStatus" name="changeStatus">
+                {e.status=== "Not Accepted" ?  "": <select className="changeStatus" name="changeStatus">
                   <option value="Pending">Pending</option>
                   <option value="In Progress">In Progress</option>
                   <option value="Done">Done</option>
                   <option value="Not Accepted">Not Accepted</option>
-                </select> : " "}
+                </select>}
               </td>
               <td className="accept">
                 {/* Show this button only if status is Not Accepted */}
                 {/* on change make request to update it in db, and show changed status in table */}
-                  {e.status=== "" ? "Not Accepted" : <button>Accept</button> }
+                  {e.status=== "Not Accepted" ? <button>Accept</button> : "" }
                 
               </td>
             </tr>

@@ -2,6 +2,8 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
+import { login } from '../Redux/actions';
+import { store } from '../Redux/store';
 
 export const Login = () => {
   const dispatch = useDispatch()
@@ -24,7 +26,9 @@ export const Login = () => {
   setFormdata({...formdata,
       [name] : e.target.value,
   })
+  
   go()
+  dispatch(login(true))
  }
 
   function go(){

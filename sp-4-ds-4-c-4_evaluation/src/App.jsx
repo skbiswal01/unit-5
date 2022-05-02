@@ -6,10 +6,22 @@ import { Orders } from "./components/Orders";
 import { ProtectedRoute } from "./components/ProtextedRoute";
 import { Link } from "react-router-dom";
 import { Route, Routes } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
+import { useSelector } from "react-redux";
+import { store } from './Redux/store';
 import "./App.css"
+import { useEffect, useState } from "react";
 
 function App() {
- const auth = false;
+  const [login ,setlogin]= useState(false)
+  
+  const auth = useSelector((store) => store.auth);
+
+  useEffect(()=>{
+    setlogin(auth.auth)
+  })
+
+  console.log(auth)
   return (
     <div className="App">
       <div>
@@ -17,10 +29,10 @@ function App() {
           Home
         </Link>
         {/* Show either login or logout below */}
-        {auth ? <Link className="nav-logout" to="/logout">
-          Logout
-        </Link> : <Link className="nav-login" to="/login">
+        {login ? <Link className="nav-login" to="/login">
           Login
+        </Link> : <Link className="nav-logout" to="/logout">
+          Logout
         </Link> }
       </div>
         {/* Routes are as follows:
