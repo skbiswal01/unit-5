@@ -55,7 +55,7 @@ export const Orders = () => {
               <td className="accept">
                 {/* Show this button only if status is Not Accepted */}
                 {/* on change make request to update it in db, and show changed status in table */}
-                  {e.status=== "Not Accepted" ? "" : <button>Accept</button> }
+                  {e.status=== "" ? "Not Accepted" : <button>Accept</button> }
                 
               </td>
             </tr>
